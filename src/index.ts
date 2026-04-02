@@ -25,6 +25,7 @@ async function main() {
     const tooltip = [
       `<b>${location}</b>`,
       "",
+      `<b>Current conditions</b>`,
       description,
       `Observed: ${current.localObsDateTime}`,
       `Feels like: ${current.FeelsLikeF}°`,
@@ -34,7 +35,9 @@ async function main() {
       `<b>Today</b>`,
       `High: ${today.maxtempF}° / Low: ${today.mintempF}°`,
       `Sun hours: ${today.sunHour}`,
-      ...(astronomy ? [`Sunrise: ${astronomy.sunrise} / Sunset: ${astronomy.sunset}`] : []),
+      ...(astronomy
+        ? [`Sunrise: ${astronomy.sunrise} / Sunset: ${astronomy.sunset}`]
+        : []),
     ].join("\r");
 
     console.log(
