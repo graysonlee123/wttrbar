@@ -7,7 +7,10 @@
       "name": "Debug",
       "program": "dist/index.js",
       "preLaunchTask": "pnpm: build",
-      "internalConsoleOptions": "openOnSessionStart"
+      "internalConsoleOptions": "openOnSessionStart",
+      "env": {
+        "LOCATION": "Atlanta"
+      }
     }
   ]
 }
