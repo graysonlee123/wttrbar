@@ -11,7 +11,7 @@
     {
       packages.x86_64-linux.default = pkgs.stdenv.mkDerivation (finalAttrs: {
         pname = "wttrbar";
-        version = "1.0.0";
+        version = "1.0.1";
         src = pkgs.lib.cleanSource ./.;
 
         nativeBuildInputs = [
