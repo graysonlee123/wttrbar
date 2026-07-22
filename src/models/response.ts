@@ -5,7 +5,6 @@ const CurrentConditionSchema = z.object({
   FeelsLikeF: z.string(),
   cloudcover: z.string(),
   humidity: z.string(),
-  localObsDateTime: z.string().optional(),
   observation_time: z.string(),
   precipInches: z.string(),
   precipMM: z.string(),
