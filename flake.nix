@@ -1,6 +1,6 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=nixos-26.05";
   };
 
   outputs =
@@ -11,20 +11,20 @@
     {
       packages.x86_64-linux.default = pkgs.stdenv.mkDerivation (finalAttrs: {
         pname = "wttrbar";
-        version = "1.0.1";
+        version = "1.0.2";
         src = pkgs.lib.cleanSource ./.;
 
-        nativeBuildInputs = [
-          pkgs.nodejs
-          pkgs.pnpmConfigHook
-          pkgs.pnpm_10
-          pkgs.makeWrapper
+        nativeBuildInputs = with pkgs; [
+          nodejs
+          pnpmConfigHook
+          pnpm
+          makeWrapper
         ];
 
         pnpmDeps = pkgs.fetchPnpmDeps {
           inherit (finalAttrs) pname version src;
           fetcherVersion = 3;
-          hash = "sha256-AgO4en4ZEWpExzEroFpdPb2yBprY2hODwxTK+xSMPzk=";
+          hash = "sha256-cMIRpphc3h0CxmQ0TxH/YNGKBKwg8LYbnaam4dIEyLY=";
         };
 
         buildPhase = ''
@@ -42,7 +42,7 @@
       devShells.x86_64-linux.default = pkgs.mkShell {
         buildInputs = with pkgs; [
           nodejs
-          pnpm_10
+          pnpm
           biome
         ];
 
